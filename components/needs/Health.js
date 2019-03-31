@@ -3,27 +3,25 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 import React from 'react'
 import { StyleSheet, View, Text, Button } from 'react-native'
 
-class Need extends React.Component {
+class Health extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: 'joie',
+      need: props.navigation.state.params.need,
       stateOfMind: props.navigation.state.params.stateOfMind
     }
   }
 
   render() {
     var radio_props = [
-      {label: "D'amour", value: 'Love' },
-      {label: "De Pardon", value: 'Forgiveness' },
-      {label: "De courage", value: 'Courage' },
-      {label: "De guérison", value: 'Health' },
-      {label: "D'être renforcer dans votre foi", value: 'Faith' },
-      {label: "De louer Dieu", value: 'Praises' }
+      {label: "Santé du corp", value: 'Body' },
+      {label: "Santé de l'âme", value: 'Soul' },
+      {label: "Santé de l'esprit", value: 'Spirit'}
     ];
     return (
       <View style={styles.main_container}>
-        <Text style={styles.title}>De quoi avez-besoin aujourd'hui ?</Text>
+        <Text style={styles.title}>Quel santé demandez-vous ?</Text>
         <RadioForm
          radio_props={radio_props}
          initial= 'joie'
@@ -35,7 +33,7 @@ class Need extends React.Component {
        />
        <Text style={styles.title}>{this.state.value}</Text>
        <Button
-         onPress={() => this.props.navigation.navigate(this.state.value, { stateOfMind: this.state.stateOfMind, need: this.state.value})}
+         onPress={() => this.props.navigation.navigate('Result', { need: this.state.need, stateOfMind: this.state.stateOfMind, extra: this.state.value })}
          title="Suivant"
        />
       </View>
@@ -49,4 +47,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Need
+export default Health
