@@ -5,9 +5,12 @@ import { StyleSheet, View, Text, Button } from 'react-native'
 
 class Love extends React.Component {
   constructor(props) {
+    console.log(props.navigation.state.params)
     super(props);
     this.state = {
-      value: 'joie'
+      value: 'joie',
+      need: props.navigation.state.params.need,
+      stateOfMind: props.navigation.state.params.stateOfMind
     }
   }
 
@@ -33,7 +36,7 @@ class Love extends React.Component {
        />
        <Text style={styles.title}>{this.state.value}</Text>
        <Button
-         onPress={() => this.props.navigation.navigate(this.state.value)}
+         onPress={() => this.props.navigation.navigate('Result', { need: this.state.need, stateOfMind: this.state.stateOfMind, extra: this.state.value })}
          title="Suivant"
        />
       </View>
