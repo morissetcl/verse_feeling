@@ -2,6 +2,8 @@
 import React from 'react'
 import { StyleSheet, View, TextInput, Button, FlatList, Text } from 'react-native'
 import Verse from './Verse'
+import Feeling from './Feeling'
+
 import movies from '../helpers/movies'
 
 class Search extends React.Component {
@@ -10,6 +12,11 @@ class Search extends React.Component {
       <View  style={ styles.main_container }>
         <TextInput placeholder='Titre du film' style={ styles.textinput }/>
         <Button title='Rechercher' onPress={() => {}}/>
+        <Button
+          onPress={() => this.props.navigation.navigate("Feeling")}
+          title="Go to Brent's profile"
+        />
+
         <FlatList
           data={movies}
           keyExtractor={(item) => item.id.toString()}
@@ -23,7 +30,6 @@ class Search extends React.Component {
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
-    marginTop: 20
   },
   textinput: {
     marginLeft: 5,
