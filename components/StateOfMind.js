@@ -14,11 +14,11 @@ class StateOfMind extends React.Component {
 
   render() {
     var radio_props = [
-      {label: 'Dans la joie', value: 'joie' },
-      {label: "Dans l'anxiété", value: 'anxiété' },
-      {label: 'Dans la fatigue', value: 'fatigue' },
-      {label: 'Dans la tristesse', value: 'tristess' },
-      {label: 'Dans la reconnaissance', value: 'reconnaissance' }
+      {label: 'Dans la joie', value: 'Joy' },
+      {label: "Dans l'anxiété", value: 'Anxiety' },
+      {label: 'Dans la fatigue', value: 'Tire' },
+      {label: 'Dans la tristesse', value: 'Sad' },
+      {label: 'Dans la reconnaissance', value: 'Recognition' }
     ];
     return (
       <View style={styles.main_container}>
@@ -34,7 +34,7 @@ class StateOfMind extends React.Component {
        />
        <Text style={styles.title}>{this.state.value}</Text>
        <Button
-         onPress={() => this.props.navigation.navigate("Need")}
+         onPress={() => this.props.navigation.navigate("Need", { stateOfMind: this.state.value})}
          title="Suivant"
        />
       </View>

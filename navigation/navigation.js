@@ -6,6 +6,7 @@ import StateOfMind from '../components/StateOfMind'
 import Need from '../components/Need'
 import Love from '../components/needs/Love'
 import Courage from '../components/needs/Courage'
+import Result from '../components/Result'
 
 const SearchStackNavigator = createStackNavigator(
   {
@@ -31,6 +32,12 @@ const SearchStackNavigator = createStackNavigator(
       screen: Courage,
       navigationOptions: {
         title: "Courage"
+      }
+    },
+    Result: {
+      screen: Result,
+      navigationOptions: {
+        title: "Result"
       }
     }
   },

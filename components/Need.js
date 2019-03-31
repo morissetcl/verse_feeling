@@ -7,7 +7,8 @@ class Need extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'joie'
+      value: 'joie',
+      stateOfMind: props.navigation.state.params.stateOfMind
     }
   }
 
@@ -34,7 +35,7 @@ class Need extends React.Component {
        />
        <Text style={styles.title}>{this.state.value}</Text>
        <Button
-         onPress={() => this.props.navigation.navigate(this.state.value)}
+         onPress={() => this.props.navigation.navigate(this.state.value, { stateOfMind: this.state.stateOfMind, need: this.state.value})}
          title="Suivant"
        />
       </View>
