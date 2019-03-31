@@ -7,6 +7,10 @@ import Need from '../components/Need'
 import Love from '../components/needs/Love'
 import Courage from '../components/needs/Courage'
 import Result from '../components/Result'
+import Health from '../components/needs/Health'
+import Faith from '../components/needs/Faith'
+import Forgiveness from '../components/needs/Forgiveness'
+import Praises from '../components/needs/Praises'
 
 const SearchStackNavigator = createStackNavigator(
   {
@@ -32,6 +36,30 @@ const SearchStackNavigator = createStackNavigator(
       screen: Courage,
       navigationOptions: {
         title: "Courage"
+      }
+    },
+    Health: {
+      screen: Health,
+      navigationOptions: {
+        title: "Santé"
+      }
+    },
+    Faith: {
+      screen: Faith,
+      navigationOptions: {
+        title: "Foi"
+      }
+    },
+    Forgiveness: {
+      screen: Forgiveness,
+      navigationOptions: {
+        title: "Pardon"
+      }
+    },
+    Praises: {
+      screen: Praises,
+      navigationOptions: {
+        title: "Louange"
       }
     },
     Result: {

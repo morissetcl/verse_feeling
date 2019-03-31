@@ -5,7 +5,6 @@ import { StyleSheet, View, Text, Button } from 'react-native'
 
 class Love extends React.Component {
   constructor(props) {
-    console.log(props.navigation.state.params)
     super(props);
     this.state = {
       value: 'joie',

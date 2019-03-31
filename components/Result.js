@@ -19,7 +19,8 @@ class Result extends React.Component {
     verses.map((item, key) =>
       item.tags.join() == this.formattedTags() ? filtered_verses.push(item) : ''
     );
-    return filtered_verses
+    random_verse = filtered_verses[Math.floor(Math.random() * filtered_verses.length)];
+    return [random_verse]
   }
 
   formattedTags() {

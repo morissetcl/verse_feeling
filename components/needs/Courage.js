@@ -7,7 +7,9 @@ class Courage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'joie'
+      value: 'joie',
+      need: props.navigation.state.params.need,
+      stateOfMind: props.navigation.state.params.stateOfMind
     }
   }
 
@@ -31,7 +33,7 @@ class Courage extends React.Component {
        />
        <Text style={styles.title}>{this.state.value}</Text>
        <Button
-         onPress={() => this.props.navigation.navigate(this.state.value)}
+         onPress={() => this.props.navigation.navigate('Result', { need: this.state.need, stateOfMind: this.state.stateOfMind, extra: this.state.value })}
          title="Suivant"
        />
       </View>
