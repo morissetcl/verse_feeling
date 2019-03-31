@@ -2,9 +2,9 @@
 import React from 'react'
 import { StyleSheet, View, TextInput, Button, FlatList, Text } from 'react-native'
 import Verse from './Verse'
-import Feeling from './Feeling'
+import StateOfMind from './StateOfMind'
 
-import movies from '../helpers/movies'
+import verses from '../helpers/verses'
 
 class Search extends React.Component {
   render() {
@@ -12,13 +12,8 @@ class Search extends React.Component {
       <View  style={ styles.main_container }>
         <TextInput placeholder='Titre du film' style={ styles.textinput }/>
         <Button title='Rechercher' onPress={() => {}}/>
-        <Button
-          onPress={() => this.props.navigation.navigate("Feeling")}
-          title="Go to Brent's profile"
-        />
-
         <FlatList
-          data={movies}
+          data={verses}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({item}) => <Verse verse={item}/> }
         />
