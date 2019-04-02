@@ -1,7 +1,7 @@
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 import React from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
+import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native'
 
 class Need extends React.Component {
   constructor(props) {
@@ -10,6 +10,12 @@ class Need extends React.Component {
       value: 'joie',
       stateOfMind: props.navigation.state.params.stateOfMind
     }
+  }
+
+  selectValueAndRedirect(item) {
+    this.props.navigation.navigate(item.value, { stateOfMind: this.state.stateOfMind, need: item.value})
+    console.log(this.state.stateOfMind)
+    console.log(item.value)
   }
 
   render() {
@@ -24,20 +30,21 @@ class Need extends React.Component {
     return (
       <View style={styles.main_container}>
         <Text style={styles.title}>De quoi avez-besoin aujourd'hui ?</Text>
-        <RadioForm
-         radio_props={radio_props}
-         initial= 'joie'
-         formHorizontal={false}
-         labelHorizontal={true}
-         buttonColor={'#2196f3'}
-         animation={true}
-         onPress={(value) => {this.setState({value:value})}}
-       />
-       <Text style={styles.title}>{this.state.value}</Text>
-       <Button
-         onPress={() => this.props.navigation.navigate(this.state.value, { stateOfMind: this.state.stateOfMind, need: this.state.value})}
-         title="Suivant"
-       />
+        <View style={{ flex: 5, display: 'flex', alignItems: 'center', padding: '15%' }}>
+          {
+           radio_props.map((item, index) => (
+              <TouchableOpacity
+                 key = {item.value}
+                 style = {styles.container}
+                 onPress={(value) => { this.selectValueAndRedirect(item) }}>
+                 <Text style = {styles.text}>
+                    {item.label }
+                 </Text>
+              </TouchableOpacity>
+           ))
+          }
+
+        </View>
       </View>
     )
   }
@@ -45,7 +52,38 @@ class Need extends React.Component {
 
 const styles = StyleSheet.create({
   main_container: {
-    flex: 1,
+    flex: 1
+  },
+  action_button: {
+    flex: 1
+  },
+  coucou: {
+    width: 200,
+    marginRight:40,
+    marginLeft:40,
+    marginTop:10,
+    paddingTop:20,
+    paddingBottom:20,
+    borderRadius:50,
+    borderWidth: 1,
+    borderColor: '#fff',
+    overflow: 'hidden'
+  },
+  container: {
+    padding: 10,
+    marginTop: 3,
+    backgroundColor: '#d9f9b1',
+    alignItems: 'center',
+    padding: 20,
+    width: '100%'
+  },
+  title: {
+    display: 'flex',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    position: 'relative',
+    top: '5%',
+    padding: 10
   }
 })
 

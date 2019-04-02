@@ -1,31 +1,17 @@
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
-
+// Components/Search.js
 import React from 'react'
-import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, FlatList } from 'react-native'
 
-class Praises extends React.Component {
+class Choice extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      value: 'joie',
-      need: props.navigation.state.params.need,
-      stateOfMind: props.navigation.state.params.stateOfMind
-    }
+    console.log(props)
+    console.log('-----------------------------------')
+    super(props)
   }
-
-  selectValueAndRedirect(item) {
-    this.props.navigation.navigate('Result', { need: this.state.need, stateOfMind: this.state.stateOfMind, extra: item.value })
-  }
-
   render() {
-    var radio_props = [
-      {label: "Pas de raison particulère, IL est juste grand", value: 'None' },
-      {label: "Il a répondu à mes prières", value: 'Answer' },
-      {label: "Il me donne le souffle de vie", value: 'Life' }
-    ];
     return (
       <View style={styles.main_container}>
-        <Text style={styles.title}>Pour quelles raisons voulez-vous remercier ?</Text>
+        <Text style={styles.title}>Quel côté de votre Foi voulez-vous renforcer ?</Text>
           <View style={{ flex: 5, display: 'flex', alignItems: 'center', padding: '15%' }}>
             {
              radio_props.map((item, index) => (
@@ -79,10 +65,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     top: '5%',
     padding: 10
-  },
-  text: {
-    textAlign: 'center'
   }
 })
 
-export default Praises
+export default Choice
