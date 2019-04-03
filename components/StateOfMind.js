@@ -3,6 +3,8 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 import React from 'react'
 import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native'
 import Need from './Need'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faSmileBeam, faSadTear } from '@fortawesome/free-solid-svg-icons'
 
 class StateOfMind extends React.Component {
   constructor(props) {
@@ -26,6 +28,9 @@ class StateOfMind extends React.Component {
     ];
     return (
       <View style={styles.main_container}>
+        <FontAwesomeIcon icon={ faSadTear } size={150} color={ '#fce38a' } style={{ position: 'absolute', top: 0, right: 0 }} />
+        <FontAwesomeIcon icon={ faSmileBeam } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
+
         <Text style={styles.title}>Dans quel état d'esprit vous trouvez vous aujourd'hui ?</Text>
         <View style={{ flex: 5, display: 'flex', alignItems: 'center', padding: '15%' }}>
           {
@@ -69,18 +74,24 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     marginTop: 3,
-    backgroundColor: '#d9f9b1',
+    backgroundColor: '#34699a',
     alignItems: 'center',
     padding: 20,
-    width: '100%'
+    width: '100%',
+    borderRadius: 10
   },
   title: {
     display: 'flex',
     textAlign: 'center',
     fontWeight: 'bold',
+    fontSize: 18,
     position: 'relative',
     top: '5%',
-    padding: 10
+    padding: 10,
+    color: '#00204a'
+  },
+  text: {
+    color: 'white'
   }
 })
 

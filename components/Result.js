@@ -6,7 +6,6 @@ import verses from '../helpers/verses'
 
 class Result extends React.Component {
   constructor(props) {
-    console.log(props)
     super(props);
     this.state = {
       stateOfMind: props.navigation.state.params.stateOfMind,

@@ -9,7 +9,7 @@ export default data = [
       original_title:"Star Wars: The Last Jedi",
       overview:"Sin Nouvel épisode de la saga. Les héros du Réveil de la force rejoignent les figures légendaires de la galaxie dans une aventure épique qui révèle des secrets ancestraux sur la Force et entraîne de choquantes révélations sur le passé…",
       release_date:"2017-12-13",
-      tags: ['Joy', 'Forgiveness', 'Sin']
+      tags: ['Joy', 'Love', 'Parent']
    },
    {
       id:18188,
