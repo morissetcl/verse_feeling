@@ -1,9 +1,10 @@
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 import React from 'react'
-import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, Button, TouchableOpacity, Dimensions } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPray, faCloudSun } from '@fortawesome/free-solid-svg-icons'
+import ProgressBarAnimated from 'react-native-progress-bar-animated';
 
 class Faith extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Faith extends React.Component {
     this.state = {
       value: 'joie',
       need: props.navigation.state.params.need,
-      stateOfMind: props.navigation.state.params.stateOfMind
+      stateOfMind: props.navigation.state.params.stateOfMind,
+      progress: 60
     }
   }
 
@@ -20,13 +22,22 @@ class Faith extends React.Component {
   }
 
   render() {
+    const barWidth = Dimensions.get('screen').width;
     var radio_props = [
       {label: "L'espoir que je met en Jésus", value: 'Hope' },
       {label: "La crainte de Dieu", value: 'Fear' }
     ];
     return (
       <View style={styles.main_container}>
-        <FontAwesomeIcon icon={ faCloudSun } size={150} color={ '#fce38a' } style={{ position: 'absolute', top: 0, right: 0 }} />
+        <ProgressBarAnimated
+          width={barWidth}
+          value={this.state.progress}
+          borderColor='#f4f3f3'
+          barAnimationDuration={0}
+          borderRadius={0}
+          backgroundColor='#05004e'
+        />
+        <FontAwesomeIcon icon={ faCloudSun } size={150} color={ '#fce38a' } style={{ position: 'absolute', top: 20, right: 0 }} />
         <FontAwesomeIcon icon={ faPray } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
 
         <Text style={styles.title}>Quel côté de votre Foi voulez-vous renforcer ?</Text>
@@ -51,7 +62,8 @@ class Faith extends React.Component {
 
 const styles = StyleSheet.create({
   main_container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#f4f3f3'
   },
   action_button: {
     flex: 1
@@ -71,7 +83,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     marginTop: 3,
-    backgroundColor: '#34699a',
+    backgroundColor: '#05004e',
     alignItems: 'center',
     padding: 20,
     width: '100%',
@@ -85,7 +97,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     top: '5%',
     padding: 10,
-    color: '#00204a'
+    color: '#05004e'
   },
   text: {
     color: 'white'

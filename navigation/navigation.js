@@ -17,55 +17,55 @@ const SearchStackNavigator = createStackNavigator(
     StateOfMind: {
       screen: StateOfMind,
       navigationOptions: {
-        title: "Etat d'esprit 1/3"
+        title: "Etat d'esprit"
       }
     },
     Need: {
       screen: Need,
       navigationOptions: {
-        title: "Besoins 2/3"
+        title: "Besoins"
       }
     },
     Love: {
       screen: Love,
       navigationOptions: {
-        title: "Amour 3/3"
+        title: "Amour"
       }
     },
     Courage: {
       screen: Courage,
       navigationOptions: {
-        title: "Courage 3/3"
+        title: "Courage"
       }
     },
     Health: {
       screen: Health,
       navigationOptions: {
-        title: "Santé 3/3"
+        title: "Santé"
       }
     },
     Faith: {
       screen: Faith,
       navigationOptions: {
-        title: "Foi 3/3"
+        title: "Foi"
       }
     },
     Forgiveness: {
       screen: Forgiveness,
       navigationOptions: {
-        title: "Pardon 3/3"
+        title: "Pardon"
       }
     },
     Praises: {
       screen: Praises,
       navigationOptions: {
-        title: "Louange 3/3"
+        title: "Louange"
       }
     },
     Result: {
       screen: Result,
       navigationOptions: {
-        title: "Result 3/3"
+        title: "Result"
       }
     }
   },
