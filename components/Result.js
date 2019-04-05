@@ -6,6 +6,7 @@ import verses from '../helpers/verses'
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
+import { getVerseFromBibleApiWithSearchedText } from '../api/bible'
 
 class Result extends React.Component {
   constructor(props) {
@@ -14,9 +15,18 @@ class Result extends React.Component {
       stateOfMind: props.navigation.state.params.stateOfMind,
       need: props.navigation.state.params.need,
       extra: props.navigation.state.params.extra,
-      progress: 100
+      progress: 100,
+      verses: []
     }
   }
+
+  componentDidMount() {
+    getVerseFromBibleApiWithSearchedText(this.retrieveVerse()).then(data => {
+      this.state.verses = { text: data.text, verse: data.reference }
+      this.forceUpdate();
+    })
+  }
+
 
   retrieveVerse() {
     var filtered_verses = []
@@ -24,7 +34,7 @@ class Result extends React.Component {
       item.tags.join() == this.formattedTags() ? filtered_verses.push(item) : ''
     );
     random_verse = filtered_verses[Math.floor(Math.random() * filtered_verses.length)];
-    return [random_verse]
+    return random_verse.verse_number
   }
 
   formattedTags() {
@@ -44,15 +54,11 @@ class Result extends React.Component {
           borderRadius={0}
           backgroundColor='#05004e'
         />
+        <FontAwesomeIcon icon={ faQuoteLeft } size={150} color={ '#dadddf' } style={{ position: 'absolute', top: 50, left: 10 }} />
+        <FontAwesomeIcon icon={ faQuoteRight } size={150} color={ '#dadddf' } style={{ position: 'absolute', bottom: 50, right: 10 }} />
         <View style={styles.result_container}>
-          <FontAwesomeIcon icon={ faQuoteLeft } size={150} color={ '#dadddf' } style={{ position: 'absolute', top: 50, left: 10 }} />
-          <FontAwesomeIcon icon={ faQuoteRight } size={150} color={ '#dadddf' } style={{ position: 'absolute', bottom: 50, right: 10 }} />
-
-          <FlatList
-            data={this.retrieveVerse()}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({item}) => <Text style={styles.result}>{item.overview}</Text> }
-          />
+          <Text style={styles.verse}>{this.state.verses['verse']}</Text>
+          <Text style={styles.result}>{this.state.verses['text']}</Text>
         </View>
       </View>
     )
@@ -68,9 +74,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 30
   },
+  verse: {
+    fontSize: 14,
+    fontWeight: 'bold'
+  },
   result_container: {
-    flex: 5,
-    flexDirection:'row',
+    paddingTop:'50%',
     alignItems:'center',
     justifyContent:'center',
     padding: 10

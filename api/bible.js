@@ -1,6 +1,6 @@
-export function getVerseFromBibleApiWithSearchedText (text) {
-  const url = "https://bible-api.com/john%203:16"
+export function getVerseFromBibleApiWithSearchedText (verse) {
+  const url = "https://bible-api.com/" + verse
   return fetch(url)
-    .then((response) => response)
+    .then((response) => response.json())
     .catch((error) => console.error(error))
 }
