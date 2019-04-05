@@ -11,6 +11,8 @@ import Health from '../components/needs/Health'
 import Faith from '../components/needs/Faith'
 import Forgiveness from '../components/needs/Forgiveness'
 import Praises from '../components/needs/Praises'
+import Homepage from '../components/Homepage'
+import { fadeIn } from 'react-navigation-transitions';
 
 const SearchStackNavigator = createStackNavigator(
   {
@@ -25,6 +27,9 @@ const SearchStackNavigator = createStackNavigator(
       navigationOptions: {
         title: "Besoins"
       }
+    },
+    Homepage: {
+      screen: Homepage
     },
     Love: {
       screen: Love,
@@ -65,12 +70,13 @@ const SearchStackNavigator = createStackNavigator(
     Result: {
       screen: Result,
       navigationOptions: {
-        title: "Result"
+        title: "Your verse"
       }
     }
   },
   {
-    initialRouteName: 'StateOfMind'
+    initialRouteName: 'Homepage',
+    transitionConfig: () => fadeIn(500)
   }
 )
 
