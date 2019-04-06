@@ -20,7 +20,7 @@ class Homepage extends React.Component {
              style = {styles.container}
              onPress={(value) => { this.props.navigation.navigate('StateOfMind') }}>
              <Text style = {styles.text}>
-                Find your verse
+                Commencez
              </Text>
           </TouchableOpacity>
         </View>
