@@ -5,9 +5,6 @@ import { faPray, faHeart } from '@fortawesome/free-solid-svg-icons'
 
 class Homepage extends React.Component {
 
-  // selectValueAndRedirect(item) {
-  //   this.props.navigation.navigate(item.value, { stateOfMind: this.state.stateOfMind, need: item.value})
-  // }
   static navigationOptions = { header: null }
 
   render() {
@@ -20,7 +17,7 @@ class Homepage extends React.Component {
              style = {styles.container}
              onPress={(value) => { this.props.navigation.navigate('StateOfMind') }}>
              <Text style = {styles.text}>
-                Find your verse
+                Commencez
              </Text>
           </TouchableOpacity>
         </View>

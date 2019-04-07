@@ -1,6 +1,6 @@
-export function getVerseFromBibleApiWithSearchedText (text) {
-  const url = "https://bible-api.com/john%203:16"
+export function getVerseFromBibleApiWithSearchedText(tags) {
+  const url = 'https://vmind-api.herokuapp.com/api/v1/verses?need=' + tags['need'] + '&theme=' + tags['theme']
   return fetch(url)
-    .then((response) => response)
+    .then((response) => response.json())
     .catch((error) => console.error(error))
 }

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MeMyselfAndI",
-    "slug": "MoviesAndMe",
+    "name": "Bible Mind",
+    "slug": "bible_mind",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/biblemind.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/biblemind.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

@@ -24,9 +24,9 @@ class Praises extends React.Component {
   render() {
     const barWidth = Dimensions.get('screen').width;
     var radio_props = [
-      {label: "Pas de raison particulère, IL est juste grand", value: 'None' },
-      {label: "Il a répondu à mes prières", value: 'Answer' },
-      {label: "Il me donne le souffle de vie", value: 'Life' }
+      { label: "Pas de raison particulère, IL est juste grand", value: 'None' }
+      // {label: "Il a répondu à mes prières", value: 'Answer' },
+      // {label: "Il me donne le souffle de vie", value: 'Life' }
     ];
     return (
       <View style={styles.main_container}>

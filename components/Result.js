@@ -1,11 +1,12 @@
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 import React from 'react'
-import { StyleSheet, View, Text, Button, FlatList, Dimensions } from 'react-native'
+import { StyleSheet, View, Text, Button, FlatList, Dimensions, ScrollView, ActivityIndicator } from 'react-native'
 import verses from '../helpers/verses'
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
+import { getVerseFromBibleApiWithSearchedText } from '../api/bible'
 
 class Result extends React.Component {
   constructor(props) {
@@ -14,21 +15,24 @@ class Result extends React.Component {
       stateOfMind: props.navigation.state.params.stateOfMind,
       need: props.navigation.state.params.need,
       extra: props.navigation.state.params.extra,
-      progress: 100
+      progress: 100,
+      verses: [],
+      loaded: false
     }
   }
 
-  retrieveVerse() {
-    var filtered_verses = []
-    verses.map((item, key) =>
-      item.tags.join() == this.formattedTags() ? filtered_verses.push(item) : ''
-    );
-    random_verse = filtered_verses[Math.floor(Math.random() * filtered_verses.length)];
-    return [random_verse]
+  componentDidMount() {
+    const tags = this.formattedTags()
+    getVerseFromBibleApiWithSearchedText(tags).then(data => {
+      random_verse = data['verses'][Math.floor(Math.random() * data['verses'].length)];
+      this.state.verses = { text: random_verse.content, verse: random_verse.name }
+      this.setState({ loaded: true })
+      this.forceUpdate();
+    })
   }
 
   formattedTags() {
-    var tags = this.state.stateOfMind + ',' + this.state.need + ',' + this.state.extra
+    var tags = { need: this.state.need, theme: this.state.extra }
     return tags
   }
 
@@ -44,36 +48,46 @@ class Result extends React.Component {
           borderRadius={0}
           backgroundColor='#05004e'
         />
-        <View style={styles.result_container}>
-          <FontAwesomeIcon icon={ faQuoteLeft } size={150} color={ '#dadddf' } style={{ position: 'absolute', top: 50, left: 10 }} />
-          <FontAwesomeIcon icon={ faQuoteRight } size={150} color={ '#dadddf' } style={{ position: 'absolute', bottom: 50, right: 10 }} />
-
-          <FlatList
-            data={this.retrieveVerse()}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({item}) => <Text style={styles.result}>{item.overview}</Text> }
-          />
-        </View>
+        <FontAwesomeIcon icon={ faQuoteLeft } size={150} color={ '#dadddf' } style={{ position: 'absolute', top: 100, left: 10 }} />
+        <FontAwesomeIcon icon={ faQuoteRight } size={150} color={ '#dadddf' } style={{ position: 'absolute', bottom: 70, right: 10 }} />
+        {this.state.loaded ?
+          <View style={styles.result_container}>
+            <ScrollView style={styles.result_container}>
+            <Text style={styles.verse}>{this.state.verses['verse']}</Text>
+              <Text style={styles.result}>{this.state.verses['text']}</Text>
+            </ScrollView>
+          </View>
+          :  <ActivityIndicator size="large" color="#0000ff" />
+        }
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  result_container: {
+    paddingBottom: '5%'
+  },
   main_container: {
     flex: 1,
-    backgroundColor: '#f4f3f3'
+    backgroundColor: '#f4f3f3',
   },
   result: {
     fontSize: 18,
-    lineHeight: 30
+    lineHeight: 30,
+    padding: 20,
+    textAlign: 'justify',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: '20%'
   },
-  result_container: {
-    flex: 5,
-    flexDirection:'row',
-    alignItems:'center',
-    justifyContent:'center',
-    padding: 10
+  verse: {
+    paddingTop: '5%',
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    backgroundColor: 'transparent'
+
   }
 })
 

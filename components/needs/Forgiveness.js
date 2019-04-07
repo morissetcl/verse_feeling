@@ -25,7 +25,7 @@ class Forgiveness extends React.Component {
     const barWidth = Dimensions.get('screen').width;
     var radio_props = [
       {label: "Parceque j'ai pêché", value: 'Sin' },
-      {label: "Car je me suis éloigné du Seigneur", value: 'Distant' }
+      {label: "Pour que je puisse pardonner aux autres", value: 'Distant' }
     ];
     return (
       <View style={styles.main_container}>
