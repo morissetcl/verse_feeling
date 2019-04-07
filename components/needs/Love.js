@@ -25,7 +25,7 @@ class Love extends React.Component {
     const barWidth = Dimensions.get('screen').width;
     var radio_props = [
       {label: "L'amour de mes parents", value: 'Parent' },
-      // {label: "L'amour de mes enfants", value: 'Child' },
+      {label: "L'amour de mes enfants", value: 'Child' },
       {label: "L'amour de mon conjoint", value: 'Partner' },
       {label: "L'amour du Seigneur", value: 'Lord' },
       {label: "L'amour d'un(e) ami(e)", value: 'Friends' }

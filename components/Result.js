@@ -52,8 +52,8 @@ class Result extends React.Component {
         <FontAwesomeIcon icon={ faQuoteRight } size={150} color={ '#dadddf' } style={{ position: 'absolute', bottom: 70, right: 10 }} />
         {this.state.loaded ?
           <View style={styles.result_container}>
-            <Text style={styles.verse}>{this.state.verses['verse']}</Text>
             <ScrollView style={styles.result_container}>
+            <Text style={styles.verse}>{this.state.verses['verse']}</Text>
               <Text style={styles.result}>{this.state.verses['text']}</Text>
             </ScrollView>
           </View>
@@ -82,11 +82,12 @@ const styles = StyleSheet.create({
     paddingBottom: '20%'
   },
   verse: {
-    padding: '5%',
+    paddingTop: '5%',
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    backgroundColor: '#f4f3f3'
+    backgroundColor: 'transparent'
+
   }
 })
 

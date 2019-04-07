@@ -5,9 +5,6 @@ import { faPray, faHeart } from '@fortawesome/free-solid-svg-icons'
 
 class Homepage extends React.Component {
 
-  // selectValueAndRedirect(item) {
-  //   this.props.navigation.navigate(item.value, { stateOfMind: this.state.stateOfMind, need: item.value})
-  // }
   static navigationOptions = { header: null }
 
   render() {
