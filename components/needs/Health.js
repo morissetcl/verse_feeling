@@ -1,5 +1,5 @@
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
-
+import { Badge } from 'react-native-elements'
+import i18n from '../../src/i18n'
 import React from 'react'
 import { StyleSheet, View, Text, Button, TouchableOpacity, Dimensions} from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -42,7 +42,11 @@ class Health extends React.Component {
         <FontAwesomeIcon icon={ faStarOfLife } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
 
         <Text style={styles.title}>Quel santé demandez-vous ?</Text>
-          <View style={{ flex: 5, display: 'flex', alignItems: 'center', padding: '15%' }}>
+          <View style={styles.badges}>
+            <Badge badgeStyle={styles.badge} value={i18n.t(this.state.stateOfMind)} status="error" />
+            <Badge badgeStyle={styles.badge} value={i18n.t(this.state.need)} status="error" />
+          </View>
+          <View style={{ flex: 5, display: 'flex', alignItems: 'center', paddingLeft: '15%', paddingRight: '15%', paddingTop: '5%' }}>
             {
              radio_props.map((item, index) => (
                 <TouchableOpacity
@@ -91,17 +95,28 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   title: {
-    display: 'flex',
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 18,
     position: 'relative',
-    top: '5%',
     padding: 10,
     color: '#05004e'
   },
   text: {
     color: 'white'
+  },
+  badges: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: '2%'
+  },
+  badge: {
+    paddingLeft: 5,
+    paddingRight: 5,
+    paddingBottom: 12,
+    paddingTop: 10,
+    marginLeft: 10,
+    marginRight: 10
   }
 })
 
