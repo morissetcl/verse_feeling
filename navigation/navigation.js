@@ -1,5 +1,5 @@
 // Navigation/Navigation.js
-
+import i18n from '../src/i18n'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import Search from '../components/Search'
 import StateOfMind from '../components/StateOfMind'
@@ -19,14 +19,14 @@ const SearchStackNavigator = createStackNavigator(
     StateOfMind: {
       screen: StateOfMind,
       navigationOptions: {
-        title: "Etat d'esprit"
-      }
+        title: i18n.t('navigation.StateOfMind')
+      },
     },
     Need: {
       screen: Need,
       navigationOptions: {
-        title: "Besoins"
-      }
+        title: i18n.t('navigation.need')
+      },
     },
     Homepage: {
       screen: Homepage
@@ -34,45 +34,45 @@ const SearchStackNavigator = createStackNavigator(
     Love: {
       screen: Love,
       navigationOptions: {
-        title: "Amour"
-      }
+        title: i18n.t('Love')
+      },
     },
     Courage: {
       screen: Courage,
       navigationOptions: {
-        title: "Courage"
-      }
+        title: i18n.t('Courage')
+      },
     },
     Health: {
       screen: Health,
       navigationOptions: {
-        title: "Santé"
-      }
+        title: i18n.t('Health')
+      },
     },
     Faith: {
       screen: Faith,
       navigationOptions: {
-        title: "Foi"
-      }
+        title: i18n.t('Faith')
+      },
     },
     Forgiveness: {
       screen: Forgiveness,
       navigationOptions: {
-        title: "Pardon"
-      }
+        title: i18n.t('Forgiveness')
+      },
     },
     Praises: {
       screen: Praises,
       navigationOptions: {
-        title: "Louange"
-      }
+        title: i18n.t('Praises')
+      },
     },
     Result: {
       screen: Result,
       navigationOptions: {
-        title: "Your verse"
-      }
-    }
+        title: i18n.t('navigation.result')
+      },
+    },
   },
   {
     initialRouteName: 'Homepage',

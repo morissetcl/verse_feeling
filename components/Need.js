@@ -1,6 +1,6 @@
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
-
 import React from 'react'
+import { Badge } from 'react-native-elements'
+import i18n from '../src/i18n'
 import { StyleSheet, View, Text, Button, TouchableOpacity, Dimensions } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPray, faHeart } from '@fortawesome/free-solid-svg-icons'
@@ -46,7 +46,11 @@ class Need extends React.Component {
         <FontAwesomeIcon icon={ faHeart } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
 
         <Text style={styles.title}>De quoi avez-besoin aujourd'hui ?</Text>
-        <View style={{ flex: 5, display: 'flex', alignItems: 'center', padding: '15%' }}>
+        <View style={styles.badges}>
+          <Badge badgeStyle={styles.badge} value={i18n.t(this.state.stateOfMind)} status="error" />
+          
+        </View>
+        <View style={{ flex: 5, display: 'flex', alignItems: 'center', paddingLeft: '15%', paddingRight: '15%', paddingTop: '5%' }}>
           {
            radio_props.map((item, index) => (
               <TouchableOpacity
@@ -74,18 +78,6 @@ const styles = StyleSheet.create({
   action_button: {
     flex: 1
   },
-  coucou: {
-    width: 200,
-    marginRight:40,
-    marginLeft:40,
-    marginTop:10,
-    paddingTop:20,
-    paddingBottom:20,
-    borderRadius:50,
-    borderWidth: 1,
-    borderColor: '#fff',
-    overflow: 'hidden'
-  },
   container: {
     padding: 10,
     marginTop: 3,
@@ -96,17 +88,28 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   title: {
-    display: 'flex',
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 18,
     position: 'relative',
-    top: '5%',
     padding: 10,
     color: '#05004e'
   },
   text: {
     color: 'white'
+  },
+  badges: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: '2%'
+  },
+  badge: {
+    paddingLeft: 5,
+    paddingRight: 5,
+    paddingBottom: 12,
+    paddingTop: 10,
+    marginLeft: 10,
+    marginRight: 10
   }
 })
 
