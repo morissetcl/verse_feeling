@@ -1,0 +1,38 @@
+{
+  "homepage": {
+    "subtitle": "Trouvez le verset qui vous correspond en 3 questions",
+    "start": "Commencez"
+  },
+  "navigation": {
+    "StateOfMind": "État d'esprit",
+    "need": "Besoins",
+    "result": "Votre verset"
+  },
+  "Joy": "Joie",
+  "Anxiety": "Anxiété",
+  "Tire": "Fatigue",
+  "Sad": "Triste",
+  "Work": "Travail",
+  "Tentation": "Tentation",
+  "Truth": "Vérité",
+  "Hope": "Espoir",
+  "Fear": "Peur",
+  "Sin": "Pêché",
+  "Distant": "Éloignement",
+  "Body": "Corp",
+  "Soul": "Âme",
+  "Spirit": "Esprit",
+  "Parent": "Parent",
+  "Child": "Enfant",
+  "Partner": "Conjoint",
+  "Lord": "Seigneur",
+  "Friends": "Amis",
+  "None": "Merci",
+  "Love": "Amour",
+  "Forgiveness": "Pardon",
+  "Courage": "Courage",
+  "Health": "Santé",
+  "Faith": "Foi",
+  "Praises": "Louange",
+  "Recognition": "Reconnaissance"
+}
