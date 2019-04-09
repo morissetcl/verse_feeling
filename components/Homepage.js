@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, Button, Image, Animated, TouchableOpacity } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPray, faHeart } from '@fortawesome/free-solid-svg-icons'
+import i18n from '../src/i18n'
 
 class Homepage extends React.Component {
 
@@ -12,12 +13,12 @@ class Homepage extends React.Component {
       <View style={styles.main_container}>
         <Image source={require('../assets/biblemind.png')}  style={styles.logo} />
         <View style={styles.main_container}>
-          <Text style={styles.title}>Find the verse what you need in 3 questions</Text>
+          <Text style={styles.title}>{i18n.t('homepage.subtitle')}</Text>
           <TouchableOpacity
              style = {styles.container}
              onPress={(value) => { this.props.navigation.navigate('StateOfMind') }}>
              <Text style = {styles.text}>
-                Commencez
+                {i18n.t('homepage.start')}
              </Text>
           </TouchableOpacity>
         </View>

@@ -1,5 +1,3 @@
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
-
 import React from 'react'
 import { StyleSheet, View, Text, Button, TouchableOpacity, Dimensions } from 'react-native'
 import Need from './Need'
@@ -40,7 +38,8 @@ class StateOfMind extends React.Component {
         <FontAwesomeIcon icon={ faSmileBeam } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
 
         <Text style={styles.title}>Dans quel état d'esprit vous trouvez vous aujourd'hui ?</Text>
-        <View style={{ flex: 5, display: 'flex', alignItems: 'center', padding: '15%' }}>
+
+        <View style={{ flex: 5, display: 'flex', alignItems: 'center', paddingLeft: '15%', paddingRight: '15%', paddingTop: '5%' }}>
           {
            radio_props.map((item, index) => (
               <TouchableOpacity
@@ -78,17 +77,20 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   title: {
-    display: 'flex',
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 18,
     position: 'relative',
-    top: '5%',
     padding: 10,
     color: '#05004e'
   },
   text: {
     color: 'white'
+  },
+  badges: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: '2%'
   }
 })
 
