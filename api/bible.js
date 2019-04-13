@@ -4,3 +4,19 @@ export function getVerseFromBibleApiWithSearchedText(tags) {
     .then((response) => response.json())
     .catch((error) => console.error(error))
 }
+
+
+export function createFeeling(params) {
+  // const url = 'https://vmind-api.herokuapp.com/api/v1/feelings?deviceId=' + params['deviceId'] + '&mood=' + params['mood']
+  return fetch('https://vmind-api.herokuapp.com/api/v1/feelings', {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  deviceId: params['deviceId'],
+                  mood: params['mood']
+                })
+              })
+}

@@ -4,7 +4,9 @@ import Need from './Need'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSmileBeam, faSadTear } from '@fortawesome/free-solid-svg-icons'
 import ProgressBar from './communs/ProgressBar'
+import { Constants } from 'expo';
 const style = require('./communs/style');
+import { createFeeling } from '../api/bible'
 
 class StateOfMind extends React.Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class StateOfMind extends React.Component {
   }
 
   selectValueAndRedirect(item) {
+    createFeeling({ deviceId: Constants.installationId, mood: item.value })
     this.props.navigation.navigate("Need", { stateOfMind: item.value})
   }
 
