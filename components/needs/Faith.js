@@ -1,11 +1,11 @@
 import { Badge } from 'react-native-elements'
 import i18n from '../../src/i18n'
 import React from 'react'
-import { StyleSheet, View, Text, Button, TouchableOpacity, Dimensions } from 'react-native'
+import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPray, faCloudSun } from '@fortawesome/free-solid-svg-icons'
-import ProgressBarAnimated from 'react-native-progress-bar-animated';
-const style = require('../../style');
+import ProgressBar from '../communs/ProgressBar'
+const style = require('../communs/style');
 
 class Faith extends React.Component {
   constructor(props) {
@@ -23,21 +23,13 @@ class Faith extends React.Component {
   }
 
   render() {
-    const barWidth = Dimensions.get('screen').width;
     var radio_props = [
       {label: "L'espoir que je met en Jésus", value: 'Hope' },
       {label: "La crainte de Dieu", value: 'Fear' }
     ];
     return (
       <View style={style.main_container}>
-        <ProgressBarAnimated
-          width={barWidth}
-          value={this.state.progress}
-          borderColor='#f4f3f3'
-          barAnimationDuration={0}
-          borderRadius={0}
-          backgroundColor='#05004e'
-        />
+        <ProgressBar value={this.state.progress}/>
         <FontAwesomeIcon icon={ faCloudSun } size={150} color={ '#fce38a' } style={{ position: 'absolute', top: 20, right: 0 }} />
         <FontAwesomeIcon icon={ faPray } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
 
