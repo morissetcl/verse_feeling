@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js test
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js jest
 
 PATH: 
   ./bin:/usr/local/opt/rbenv/shims:/usr/local/opt/rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
@@ -50,7 +50,10 @@ npm manifest:
     ],
     "jest": {
       "preset": "react-native",
-      "verbose": true
+      "verbose": true,
+      "transformIgnorePatterns": [
+        "node_modules/(?!react-native|@fortawesome/react-native-fontawesome)"
+      ]
     },
     "private": true
   }
@@ -5310,7 +5313,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c jest
+  Arguments: -c /Users/clementmorisset/Desktop/Ruby_App/react-native/verse_feeling/node_modules/.bin/jest
   Directory: /Users/clementmorisset/Desktop/Ruby_App/react-native/verse_feeling
   Output:
   
