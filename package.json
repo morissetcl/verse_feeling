@@ -4,13 +4,15 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-native-fontawesome": "^0.1.0",
     "axios": "^0.18.0",
+    "babel-jest": "^24.7.1",
     "expo": "^32.0.0",
     "i18n-js": "^3.2.1",
     "react": "16.5.0",
@@ -19,10 +21,23 @@
     "react-native-progress-bar-animated": "^1.0.6",
     "react-native-simple-radio-button": "^2.7.3",
     "react-navigation": "^3.5.1",
-    "react-navigation-transitions": "^1.0.9"
+    "react-navigation-transitions": "^1.0.9",
+    "react-test-renderer": "^16.8.6"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "babel-preset-expo": "^5.0.0",
+    "jest": "^24.7.1"
+  },
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ],
+  "jest": {
+    "preset": "react-native",
+    "verbose": true,
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|@fortawesome/react-native-fontawesome)"
+    ]
   },
   "private": true
 }

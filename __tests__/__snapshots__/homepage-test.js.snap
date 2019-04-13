@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/biblemind.png",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "height": null,
+        "marginTop": "20%",
+        "resizeMode": "contain",
+        "width": null,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#05004e",
+          "display": "flex",
+          "flex": 2,
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingLeft": 45,
+          "paddingRight": 45,
+          "position": "relative",
+          "textAlign": "center",
+          "top": "5%",
+        }
+      }
+    >
+      Trouvez le verset qui vous correspond en 3 questions
+    </Text>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#05004e",
+          "marginTop": 3,
+          "opacity": 1,
+          "padding": 20,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "display": "flex",
+            "fontSize": 18,
+            "textAlign": "center",
+          }
+        }
+      >
+        Commencez
+      </Text>
+    </View>
+  </View>
+</View>
+`;
