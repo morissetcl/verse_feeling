@@ -1,13 +1,14 @@
 import React from 'react'
 import i18n from '../src/i18n'
-import { StyleSheet, View, Text, Button, FlatList, Dimensions, ScrollView, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, Button, FlatList, ScrollView, ActivityIndicator } from 'react-native'
 import { Badge } from 'react-native-elements'
-
 import verses from '../helpers/verses'
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 import { getVerseFromBibleApiWithSearchedText } from '../api/bible'
+import ProgressBar from './communs/ProgressBar'
+const style = require('./communs/style');
 
 class Result extends React.Component {
   constructor(props) {
@@ -38,28 +39,20 @@ class Result extends React.Component {
   }
 
   render() {
-    const barWidth = Dimensions.get('screen').width;
     return (
 
-      <View style={styles.main_container}>
-        <ProgressBarAnimated
-          width={barWidth}
-          value={this.state.progress}
-          borderColor='#f4f3f3'
-          barAnimationDuration={0}
-          borderRadius={0}
-          backgroundColor='#05004e'
-        />
+      <View style={style.main_container}>
+        <ProgressBar value={this.state.progress}/>
         <FontAwesomeIcon icon={ faQuoteLeft } size={150} color={ '#dadddf' } style={{ position: 'absolute', top: 100, left: 10 }} />
         <FontAwesomeIcon icon={ faQuoteRight } size={150} color={ '#dadddf' } style={{ position: 'absolute', bottom: 70, right: 10 }} />
         {this.state.loaded ?
           <View style={styles.result_container}>
             <ScrollView style={styles.result_container}>
             <Text style={styles.verse}>{this.state.verses['verse']}</Text>
-            <View style={styles.badges}>
-              <Badge badgeStyle={styles.badge} value={i18n.t(this.state.stateOfMind)} status="error" />
-              <Badge badgeStyle={styles.badge} value={i18n.t(this.state.need)} status="error" />
-              <Badge badgeStyle={styles.badge} value={i18n.t(this.state.extra)} status="error" />
+            <View style={style.badges}>
+              <Badge badgeStyle={style.badge} value={i18n.t(this.state.stateOfMind)} status="error" />
+              <Badge badgeStyle={style.badge} value={i18n.t(this.state.need)} status="error" />
+              <Badge badgeStyle={style.badge} value={i18n.t(this.state.extra)} status="error" />
             </View>
             <Text style={styles.result}>{this.state.verses['text']}</Text>
             </ScrollView>
@@ -74,10 +67,6 @@ class Result extends React.Component {
 const styles = StyleSheet.create({
   result_container: {
     paddingBottom: '5%'
-  },
-  main_container: {
-    flex: 1,
-    backgroundColor: '#f4f3f3',
   },
   result: {
     fontSize: 18,
@@ -95,20 +84,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: 'transparent'
 
-  },
-  badges: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingTop: '5%'
-  },
-  badge: {
-    paddingLeft: 5,
-    paddingRight: 5,
-    paddingBottom: 12,
-    paddingTop: 10,
-    marginLeft: 10,
-    marginRight: 10
   }
 })
 

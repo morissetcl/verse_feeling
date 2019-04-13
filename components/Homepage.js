@@ -11,7 +11,7 @@ class Homepage extends React.Component {
   render() {
     return (
       <View style={styles.main_container}>
-        <Image source={require('../assets/biblemind.png')}  style={styles.logo} />
+        <Image source={require('../assets/biblemind.png')} style={styles.logo} />
         <View style={styles.main_container}>
           <Text style={styles.title}>{i18n.t('homepage.subtitle')}</Text>
           <TouchableOpacity
@@ -58,9 +58,6 @@ const styles = StyleSheet.create({
     paddingRight: 45,
     paddingLeft: 45,
     color: '#05004e'
-  },
-  subtitle: {
-    color: 'red'
   },
   text: {
     color: 'white',
