@@ -22,6 +22,16 @@ class Praises extends React.Component {
     this.props.navigation.navigate('Result', { need: this.state.need, stateOfMind: this.state.stateOfMind, extra: item.value })
   }
 
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#01676b'
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    }
+  };
+
   render() {
     var radio_props = [
       { label: "Pas de raison particulère, IL est juste grand", value: 'None' }
@@ -31,8 +41,8 @@ class Praises extends React.Component {
     return (
       <View style={style.main_container}>
         <ProgressBar value={this.state.progress}/>
-        <FontAwesomeIcon icon={ faSmile } size={150} color={ '#fce38a' } style={{ position: 'absolute', top: 20, right: 0 }} />
-        <FontAwesomeIcon icon={ faBible } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 50, left: 10 }} />
+        <FontAwesomeIcon icon={ faSmile } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', top: 20, right: 0 }} />
+        <FontAwesomeIcon icon={ faBible } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 50, left: 10 }} />
 
         <Text style={style.title}>Pour quelles raisons voulez-vous remercier ?</Text>
           <View style={style.badges}>

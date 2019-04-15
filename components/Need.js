@@ -17,6 +17,16 @@ class Need extends React.Component {
     }
   }
 
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#01676b'
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    }
+  };
+
   selectValueAndRedirect(item) {
     this.props.navigation.navigate(item.value, { stateOfMind: this.state.stateOfMind, need: item.value})
   }
@@ -33,8 +43,8 @@ class Need extends React.Component {
     return (
       <View style={style.main_container}>
         <ProgressBar value={this.state.progress}/>
-        <FontAwesomeIcon icon={ faPray } size={150} color={ '#fce38a' } style={{ position: 'absolute', top: 20, right: 0 }} />
-        <FontAwesomeIcon icon={ faHeart } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
+        <FontAwesomeIcon icon={ faPray } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', top: 20, right: 0 }} />
+        <FontAwesomeIcon icon={ faHeart } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
 
         <Text style={style.title}>De quoi avez-besoin aujourd'hui ?</Text>
         <View style={style.badges}>

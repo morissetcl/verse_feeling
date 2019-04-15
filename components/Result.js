@@ -38,13 +38,23 @@ class Result extends React.Component {
     return tags
   }
 
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#01676b'
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    }
+  };
+
   render() {
     return (
 
       <View style={style.main_container}>
         <ProgressBar value={this.state.progress}/>
-        <FontAwesomeIcon icon={ faQuoteLeft } size={150} color={ '#dadddf' } style={{ position: 'absolute', top: 100, left: 10 }} />
-        <FontAwesomeIcon icon={ faQuoteRight } size={150} color={ '#dadddf' } style={{ position: 'absolute', bottom: 70, right: 10 }} />
+        <FontAwesomeIcon icon={ faQuoteLeft } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', top: 100, left: 10 }} />
+        <FontAwesomeIcon icon={ faQuoteRight } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 70, right: 10 }} />
         {this.state.loaded ?
           <View style={styles.result_container}>
             <ScrollView style={styles.result_container}>

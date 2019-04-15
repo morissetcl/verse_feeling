@@ -17,8 +17,8 @@ class ProgressBar extends React.Component {
         <ProgressBarAnimated
           width={barWidth}
           value={this.state.progress}
-          backgroundColorOnComplete="#6CC644"
-          borderColor='#f4f3f3'
+          backgroundColorOnComplete="white"
+          borderColor='white'
           barAnimationDuration={0}
           borderRadius={0}
           backgroundColor='#05004e'
