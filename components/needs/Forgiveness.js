@@ -22,6 +22,16 @@ class Forgiveness extends React.Component {
     this.props.navigation.navigate('Result', { need: this.state.need, stateOfMind: this.state.stateOfMind, extra: item.value })
   }
 
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#01676b'
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    }
+  };
+
   render() {
     var radio_props = [
       {label: "Parceque j'ai pêché", value: 'Sin' },
@@ -30,8 +40,8 @@ class Forgiveness extends React.Component {
     return (
       <View style={style.main_container}>
         <ProgressBar value={this.state.progress}/>
-        <FontAwesomeIcon icon={ faSadTear } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
-        <FontAwesomeIcon icon={ faHeartBroken } size={150} color={ '#fce38a' } style={{ position: 'absolute', top: 20, right: 0 }} />
+        <FontAwesomeIcon icon={ faSadTear } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
+        <FontAwesomeIcon icon={ faHeartBroken } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', top: 20, right: 0 }} />
 
         <Text style={style.title}>Pardon ?</Text>
           <View style={style.badges}>

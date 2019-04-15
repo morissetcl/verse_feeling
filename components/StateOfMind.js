@@ -17,6 +17,16 @@ class StateOfMind extends React.Component {
     }
   }
 
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#01676b'
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    }
+  };
+
   selectValueAndRedirect(item) {
     createFeeling({ deviceId: Constants.installationId, mood: item.value })
     this.props.navigation.navigate("Need", { stateOfMind: item.value})
@@ -33,8 +43,8 @@ class StateOfMind extends React.Component {
     return (
       <View style={style.main_container}>
         <ProgressBar value={this.state.progress}/>
-        <FontAwesomeIcon icon={ faSadTear } size={150} color={ '#fce38a' } style={{ position: 'absolute', top: 20, right: 0 }} />
-        <FontAwesomeIcon icon={ faSmileBeam } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
+        <FontAwesomeIcon icon={ faSadTear } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', top: 20, right: 0 }} />
+        <FontAwesomeIcon icon={ faSmileBeam } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
 
         <Text style={style.title}>Dans quel état d'esprit vous trouvez vous aujourd'hui ?</Text>
 

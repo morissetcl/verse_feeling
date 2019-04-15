@@ -22,6 +22,16 @@ class Faith extends React.Component {
     this.props.navigation.navigate('Result', { need: this.state.need, stateOfMind: this.state.stateOfMind, extra: item.value })
   }
 
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#01676b'
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    }
+  };
+
   render() {
     var radio_props = [
       {label: "L'espoir que je met en Jésus", value: 'Hope' },
@@ -30,8 +40,8 @@ class Faith extends React.Component {
     return (
       <View style={style.main_container}>
         <ProgressBar value={this.state.progress}/>
-        <FontAwesomeIcon icon={ faCloudSun } size={150} color={ '#fce38a' } style={{ position: 'absolute', top: 20, right: 0 }} />
-        <FontAwesomeIcon icon={ faPray } size={150} color={ '#3fc1c9' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
+        <FontAwesomeIcon icon={ faCloudSun } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', top: 20, right: 0 }} />
+        <FontAwesomeIcon icon={ faPray } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
 
         <Text style={style.title}>Quel côté de votre Foi voulez-vous renforcer ?</Text>
           <View style={style.badges}>

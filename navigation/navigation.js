@@ -75,6 +75,7 @@ const SearchStackNavigator = createStackNavigator(
     },
   },
   {
+    headerTintColor: 'red',
     initialRouteName: 'Homepage',
     transitionConfig: () => fadeIn(500)
   }

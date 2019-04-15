@@ -9,12 +9,12 @@ var {
 module.exports = StyleSheet.create({
   main_container: {
     flex: 1,
-    backgroundColor: '#f4f3f3'
+    backgroundColor: 'white'
   },
   container: {
     padding: 10,
     marginTop: 3,
-    backgroundColor: '#05004e',
+    backgroundColor: '#49beb7',
     alignItems: 'center',
     padding: 20,
     width: '100%',
