@@ -43,7 +43,7 @@ class Forgiveness extends React.Component {
         <FontAwesomeIcon icon={ faSadTear } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 0, left: 10 }} />
         <FontAwesomeIcon icon={ faHeartBroken } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', top: 20, right: 0 }} />
 
-        <Text style={style.title}>Pardon ?</Text>
+        <Text style={style.title}>De quel Pardon avez-vous besoin ?</Text>
           <View style={style.badges}>
             <Badge badgeStyle={style.badge} value={i18n.t(this.state.stateOfMind)} status="error" />
             <Badge badgeStyle={style.badge} value={i18n.t(this.state.need)} status="error" />

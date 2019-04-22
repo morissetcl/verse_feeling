@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/biblemind.png",
+    "icon": "./assets/moodtoverse.png",
     "splash": {
-      "image": "./assets/biblemind.png",
+      "image": "./assets/moodtoverse.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

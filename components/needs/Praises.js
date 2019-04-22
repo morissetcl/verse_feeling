@@ -34,9 +34,8 @@ class Praises extends React.Component {
 
   render() {
     var radio_props = [
-      { label: "Pas de raison particulère, IL est juste grand", value: 'None' }
-      // {label: "Il a répondu à mes prières", value: 'Answer' },
-      // {label: "Il me donne le souffle de vie", value: 'Life' }
+      { label: "Pas de raison particulère, IL est juste grand", value: 'None' },
+      { label: "Il a répondu à mes prières", value: 'Answer' }
     ];
     return (
       <View style={style.main_container}>
@@ -44,7 +43,7 @@ class Praises extends React.Component {
         <FontAwesomeIcon icon={ faSmile } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', top: 20, right: 0 }} />
         <FontAwesomeIcon icon={ faBible } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 50, left: 10 }} />
 
-        <Text style={style.title}>Pour quelles raisons voulez-vous remercier ?</Text>
+        <Text style={style.title}>Pour quelles raisons voulez-vous Le remercier ?</Text>
           <View style={style.badges}>
             <Badge badgeStyle={style.badge} value={i18n.t(this.state.stateOfMind)} status="error" />
             <Badge badgeStyle={style.badge} value={i18n.t(this.state.need)} status="error" />
