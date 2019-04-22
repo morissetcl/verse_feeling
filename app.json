@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/good_icone.png",
+    "icon": "./assets/moovetoverse.png",
     "splash": {
-      "image": "./assets/good_icone.png",
+      "image": "./assets/moovetoverse.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
