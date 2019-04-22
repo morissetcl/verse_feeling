@@ -4,12 +4,71 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSmileBeam, faPray, faHeart, faBible } from '@fortawesome/free-solid-svg-icons'
 import i18n from '../src/i18n'
 import Tabs from './Tabs'
+import PureChart from 'react-native-pure-chart';
+import { getFeelings } from '../api/bible'
+import { Constants } from 'expo';
 
 class Homepage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      deviceId: Constants.installationId,
+      joy: [],
+      anxiety: [],
+      tire: [],
+      sad: [],
+      recognition: []
+    }
+  }
 
   static navigationOptions = { header: null }
 
+  componentDidMount() {
+    getFeelings(this.state.deviceId).then(data => {
+      const coucou = data['feelings']
+      for(var i in coucou) {
+        if (coucou[i]['mood'] == 'Joy') {
+          this.state.joy.push(coucou)
+        } else if (coucou[i]['mood'] == 'Anxiety') {
+          this.state.anxiety.push(coucou)
+        } else if (coucou[i]['mood'] == 'Tire') {
+          this.state.tire.push(coucou)
+        } else if (coucou[i]['mood'] == 'Sad') {
+          this.state.sad.push(coucou)
+        } else {
+          this.state.recognition.push(coucou)
+        }
+        this.forceUpdate();
+      }
+    })
+  }
+
   render() {
+    let sampleData = [
+        {
+          value: this.state.joy.length,
+          label: 'Joie',
+          color: '#3fc1c9',
+        }, {
+          value: this.state.anxiety.length,
+          label: 'Anxiété',
+          color: '#364f6b'
+        }, {
+          value: this.state.tire.length,
+          label: 'Fatigue',
+          color: '#fce38a'
+        }, {
+          value: this.state.sad.length,
+          label: 'Triste',
+          color: '#fc5185'
+        }, {
+          value: this.state.recognition.length,
+          label: 'Reconnaissant',
+          color: '#480032'
+        }
+
+      ]
+
     return (
         <View style={styles.container}>
           <Tabs>
@@ -29,9 +88,11 @@ class Homepage extends React.Component {
               </TouchableOpacity>
             </View>
             <View title="GRAPHIQUE" style={styles.content}>
-              <Text style={styles.text}>
-                Components you define will end up rendering as native platform widgets
-              </Text>
+                <Text  style={styles.titre_graphique}>Votre état d'esprit sur 2019</Text>
+                <View style={styles.piechart} >
+                  <PureChart data={sampleData} type='pie' size={300} />
+                </View>
+                <Text style={{textAlign: 'center'}}>Cliquez sur le graphique pour plus de détails</Text>
             </View>
           </Tabs>
         </View>
@@ -40,6 +101,15 @@ class Homepage extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  titre_graphique: {
+    display: 'flex',
+    textAlign: 'center',
+    position: 'relative',
+    bottom: 30,
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: '#01676b'
+  },
   containerh: {
     padding: 10,
     backgroundColor: '#49beb7',
@@ -96,6 +166,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',                // Center
     fontSize: 18,
     color: 'white'
+  },
+  piechart: {
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center',
+    marginBottom: 60,
+    width: '100%'
   }
 })
 
