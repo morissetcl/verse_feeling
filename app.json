@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Bible Mind",
-    "slug": "bible_mind",
+    "name": "Mood To Verse",
+    "slug": "mood-to-verse",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/moodtoverse.png",
+    "icon": "./assets/good_icone.png",
     "splash": {
-      "image": "./assets/moodtoverse.png",
+      "image": "./assets/good_icone.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,6 +24,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }
