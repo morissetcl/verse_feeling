@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, Button, Image, Animated, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, Button, Image, Animated, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSmileBeam, faPray, faHeart, faBible } from '@fortawesome/free-solid-svg-icons'
 import i18n from '../src/i18n'
@@ -17,7 +17,9 @@ class Homepage extends React.Component {
       anxiety: [],
       tire: [],
       sad: [],
-      recognition: []
+      recognition: [],
+      loaded: false,
+      etat: ''
     }
   }
 
@@ -26,20 +28,25 @@ class Homepage extends React.Component {
   componentDidMount() {
     getFeelings(this.state.deviceId).then(data => {
       const coucou = data['feelings']
-      for(var i in coucou) {
-        if (coucou[i]['mood'] == 'Joy') {
-          this.state.joy.push(coucou)
-        } else if (coucou[i]['mood'] == 'Anxiety') {
-          this.state.anxiety.push(coucou)
-        } else if (coucou[i]['mood'] == 'Tire') {
-          this.state.tire.push(coucou)
-        } else if (coucou[i]['mood'] == 'Sad') {
-          this.state.sad.push(coucou)
-        } else {
-          this.state.recognition.push(coucou)
+      if (coucou.length > 0){
+        for(var i in coucou) {
+          if (coucou[i]['mood'] == 'Joy') {
+            this.state.joy.push(coucou)
+          } else if (coucou[i]['mood'] == 'Anxiety') {
+            this.state.anxiety.push(coucou)
+          } else if (coucou[i]['mood'] == 'Tire') {
+            this.state.tire.push(coucou)
+          } else if (coucou[i]['mood'] == 'Sad') {
+            this.state.sad.push(coucou)
+          } else {
+            this.state.recognition.push(coucou)
+          }
         }
-        this.forceUpdate();
+      } else {
+        this.setState({ etat: 'vide' })
       }
+      this.setState({ loaded: true })
+      this.forceUpdate();
     })
   }
 
@@ -88,11 +95,17 @@ class Homepage extends React.Component {
               </TouchableOpacity>
             </View>
             <View title="GRAPHIQUE" style={styles.content}>
-                <Text  style={styles.titre_graphique}>Votre état d'esprit sur 2019</Text>
-                <View style={styles.piechart} >
-                  <PureChart data={sampleData} type='pie' size={300} />
-                </View>
-                <Text style={{textAlign: 'center'}}>Cliquez sur le graphique pour plus de détails</Text>
+              <Text  style={styles.titre_graphique}>Votre état d'esprit sur 2019</Text>
+              <Text  style={styles.sous_titre_graphique}>Cliquez sur le graphique pour les détails</Text>
+              { this.state.loaded ?
+                  <View style={styles.piechart} >
+                    { this.state.etat != 'vide' ?
+                      <PureChart data={sampleData} type='pie' size={300} />
+                      : <Text style={{ padding: 30, flex: 1, textAlign: 'center' }}> Vous n'avez pas encore de données, vous devez faire au moins une recherche de verset pour accèdez à votre graphique. </Text>
+                    }
+                  </View>
+                : <ActivityIndicator size="large" color="#0000ff" />
+              }
             </View>
           </Tabs>
         </View>
@@ -101,6 +114,14 @@ class Homepage extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  sous_titre_graphique: {
+    display: 'flex',
+    textAlign: 'center',
+    position: 'relative',
+    bottom: 30,
+    fontSize: 12,
+    color: '#01676b'
+  },
   titre_graphique: {
     display: 'flex',
     textAlign: 'center',
