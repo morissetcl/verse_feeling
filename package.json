@@ -1,0 +1,30 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-native-fontawesome": "^0.1.0",
+    "axios": "^0.18.0",
+    "expo": "^32.0.0",
+    "i18n-js": "^3.2.1",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-elements": "^1.1.0",
+    "react-native-progress-bar-animated": "^1.0.6",
+    "react-native-pure-chart": "0.0.24",
+    "react-native-simple-radio-button": "^2.7.3",
+    "react-native-tab": "^1.0.0",
+    "react-navigation": "^3.5.1",
+    "react-navigation-transitions": "^1.0.9"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^5.0.0"
+  },
+  "private": true
+}

@@ -1,0 +1,41 @@
+{
+  "homepage": {
+    "subtitle": "Trouvez le verset qui vous correspond en 3 questions",
+    "start": "Commencez",
+    "step_1": "I. Choisissez votre humeur du jour",
+    "step_2": "II. Sélectionnez un thème de prière",
+    "step_3": "III. On vous trouve le verset qui vous correspond"
+  },
+  "navigation": {
+    "StateOfMind": "État d'esprit",
+    "need": "Besoins",
+    "result": "Votre verset"
+  },
+  "Joy": "Joie",
+  "Anxiety": "Anxiété",
+  "Tire": "Fatigue",
+  "Sad": "Triste",
+  "Work": "Travail",
+  "Tentation": "Tentation",
+  "Truth": "Vérité",
+  "Hope": "Espoir",
+  "Fear": "Peur",
+  "Sin": "Pêché",
+  "Distant": "Éloignement",
+  "Body": "Corp",
+  "Soul": "Âme",
+  "Spirit": "Esprit",
+  "Parent": "Parent",
+  "Child": "Enfant",
+  "Partner": "Conjoint",
+  "Lord": "Seigneur",
+  "Friends": "Amis",
+  "None": "Merci",
+  "Love": "Amour",
+  "Forgiveness": "Pardon",
+  "Courage": "Courage",
+  "Health": "Santé",
+  "Faith": "Foi",
+  "Praises": "Louange",
+  "Recognition": "Reconnaissance"
+}
