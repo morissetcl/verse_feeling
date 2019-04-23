@@ -8,11 +8,11 @@
       "ios",
       "android"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/moovetoverse.png",
+    "icon": "./assets/mood_to_verse_fr.png",
     "splash": {
-      "image": "./assets/moovetoverse.png",
+      "image": "./assets/mood_to_verse_fr.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,6 +24,9 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.moodtoverse.moodtoverse"
     },
     "description": ""
   }

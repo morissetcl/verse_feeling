@@ -101,7 +101,7 @@ class Homepage extends React.Component {
                   <View style={styles.piechart} >
                     { this.state.etat != 'vide' ?
                       <PureChart data={sampleData} type='pie' size={300} />
-                      : <Text style={{ padding: 30, flex: 1, textAlign: 'center' }}> Vous n'avez pas encore de données, vous devez faire au moins une recherche de verset pour accèdez à votre graphique. </Text>
+                      : <Text style={{ padding: 30, flex: 1, textAlign: 'center' }}> Vous n'avez pas encore de données, vous devez effectuer au moins une recherche de verset pour accèder à votre graphique. </Text>
                     }
                   </View>
                 : <ActivityIndicator size="large" color="#0000ff" />
