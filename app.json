@@ -9,13 +9,13 @@
       "android"
     ],
     "android": {
-    "versionCode": "1.0.1"
-  },
+      "package": "com.moodtoverse.moodtoverse"
+    },
     "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/moodtoversefr.png",
+    "icon": "./assets/moodtoversevf.png",
     "splash": {
-      "image": "./assets/moodtoversefr.png",
+      "image": "./assets/moodtoversevf.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -27,9 +27,6 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "android": {
-      "package": "com.moodtoverse.moodtoverse"
     },
     "description": ""
   }
