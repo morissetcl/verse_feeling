@@ -8,11 +8,14 @@
       "ios",
       "android"
     ],
+    "android": {
+    "versionCode": "1.0.1"
+  },
     "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/mood_to_verse_fr.png",
+    "icon": "./assets/moodtoversefr.png",
     "splash": {
-      "image": "./assets/mood_to_verse_fr.png",
+      "image": "./assets/moodtoversefr.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
