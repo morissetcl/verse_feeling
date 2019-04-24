@@ -8,8 +8,7 @@ var {
 
 module.exports = StyleSheet.create({
   main_container: {
-    flex: 1,
-    backgroundColor: 'white'
+    flex: 1
   },
   container: {
     padding: 10,

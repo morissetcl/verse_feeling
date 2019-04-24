@@ -1,14 +1,15 @@
 import React from 'react'
 import i18n from '../src/i18n'
-import { StyleSheet, View, Text, Button, FlatList, ScrollView, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, Button, FlatList, ScrollView, ActivityIndicator, TouchableOpacity } from 'react-native'
 import { Badge } from 'react-native-elements'
 import verses from '../helpers/verses'
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
+import { faQuoteLeft, faQuoteRight, faRedoAlt, faHome } from '@fortawesome/free-solid-svg-icons'
 import { getVerseFromBibleApiWithSearchedText } from '../api/bible'
 import ProgressBar from './communs/ProgressBar'
 const style = require('./communs/style');
+import { StackActions, NavigationActions } from 'react-navigation';
 
 class Result extends React.Component {
   constructor(props) {
@@ -24,6 +25,16 @@ class Result extends React.Component {
   }
 
   componentDidMount() {
+    const tags = this.formattedTags()
+    getVerseFromBibleApiWithSearchedText(tags).then(data => {
+      random_verse = data['verses'][Math.floor(Math.random() * data['verses'].length)];
+      this.state.verses = { text: random_verse.content, verse: random_verse.name }
+      this.setState({ loaded: true })
+      this.forceUpdate();
+    })
+  }
+
+  retrieveVerse() {
     const tags = this.formattedTags()
     getVerseFromBibleApiWithSearchedText(tags).then(data => {
       random_verse = data['verses'][Math.floor(Math.random() * data['verses'].length)];
@@ -49,6 +60,11 @@ class Result extends React.Component {
   };
 
   render() {
+    const backHome = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Homepage' })],
+    });
+
     return (
 
       <View style={style.main_container}>
@@ -57,24 +73,46 @@ class Result extends React.Component {
         <FontAwesomeIcon icon={ faQuoteRight } size={150} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 70, right: 10 }} />
         {this.state.loaded ?
           <View style={styles.result_container}>
-            <ScrollView style={styles.result_container}>
-            <Text style={styles.verse}>{this.state.verses['verse']}</Text>
-            <View style={style.badges}>
-              <Badge badgeStyle={style.badge} value={i18n.t(this.state.stateOfMind)} status="error" />
-              <Badge badgeStyle={style.badge} value={i18n.t(this.state.need)} status="error" />
-              <Badge badgeStyle={style.badge} value={i18n.t(this.state.extra)} status="error" />
+            <View style={styles.result_container}>
+              <ScrollView>
+              <Text style={styles.verse}>{this.state.verses['verse']}</Text>
+              <View style={style.badges}>
+                <Badge badgeStyle={style.badge} value={i18n.t(this.state.stateOfMind)} status="error" />
+                <Badge badgeStyle={style.badge} value={i18n.t(this.state.need)} status="error" />
+                <Badge badgeStyle={style.badge} value={i18n.t(this.state.extra)} status="error" />
+              </View>
+              <Text style={styles.result}>{this.state.verses['text']}</Text>
+              </ScrollView>
             </View>
-            <Text style={styles.result}>{this.state.verses['text']}</Text>
-            </ScrollView>
           </View>
           :  <ActivityIndicator size="large" color="#0000ff" />
         }
+        <View style = {styles.bottom_buttons}>
+          <TouchableOpacity onPress = {() => this.props.navigation.dispatch(backHome)}>
+            <FontAwesomeIcon icon={ faHome } size={28} color={ '#ffff' } />
+          </TouchableOpacity>
+          <TouchableOpacity onPress = {() => this.retrieveVerse()}>
+            <FontAwesomeIcon icon={ faRedoAlt } size={25} color={ '#ffff' } />
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  bottom_buttons: {
+    backgroundColor: '#01676b',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    position: 'absolute',
+    bottom:0,
+    left:0,
+    width: '100%',
+    height: '12%',
+    alignItems: 'center'
+  },
   result_container: {
     paddingBottom: '5%'
   },
