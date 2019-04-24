@@ -9,6 +9,7 @@ import { faQuoteLeft, faQuoteRight, faRedoAlt, faHome } from '@fortawesome/free-
 import { getVerseFromBibleApiWithSearchedText } from '../api/bible'
 import ProgressBar from './communs/ProgressBar'
 const style = require('./communs/style');
+import { StackActions, NavigationActions } from 'react-navigation';
 
 class Result extends React.Component {
   constructor(props) {
@@ -19,7 +20,8 @@ class Result extends React.Component {
       extra: props.navigation.state.params.extra,
       progress: 100,
       verses: [],
-      loaded: false    }
+      loaded: false
+    }
   }
 
   componentDidMount() {
@@ -58,6 +60,11 @@ class Result extends React.Component {
   };
 
   render() {
+    const backHome = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Homepage' })],
+    });
+
     return (
 
       <View style={style.main_container}>
@@ -77,12 +84,11 @@ class Result extends React.Component {
               <Text style={styles.result}>{this.state.verses['text']}</Text>
               </ScrollView>
             </View>
-
           </View>
           :  <ActivityIndicator size="large" color="#0000ff" />
         }
         <View style = {styles.bottom_buttons}>
-          <TouchableOpacity onPress = {() => this.retrieveVerse()}>
+          <TouchableOpacity onPress = {() => this.props.navigation.dispatch(backHome)}>
             <FontAwesomeIcon icon={ faHome } size={28} color={ '#ffff' } />
           </TouchableOpacity>
           <TouchableOpacity onPress = {() => this.retrieveVerse()}>
