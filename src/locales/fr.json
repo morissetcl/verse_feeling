@@ -2,9 +2,7 @@
   "homepage": {
     "subtitle": "Trouvez le verset qui vous correspond en 3 questions",
     "start": "Commencez",
-    "step_1": "I. Choisissez votre humeur du jour",
-    "step_2": "II. Sélectionnez un thème de prière",
-    "step_3": "III. On vous trouve le verset qui vous correspond"
+    "step_1": "Trouvez le verset dont vous avez besoin en 3 questions"
   },
   "navigation": {
     "StateOfMind": "État d'esprit",

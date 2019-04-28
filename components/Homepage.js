@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, Button, Image, Animated, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, Button, Image, Animated, TouchableOpacity, ActivityIndicator, ImageBackground } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSmileBeam, faPray, faHeart, faBible } from '@fortawesome/free-solid-svg-icons'
 import i18n from '../src/i18n'
@@ -73,19 +73,14 @@ class Homepage extends React.Component {
           label: 'Reconnaissant',
           color: '#480032'
         }
-
       ]
 
     return (
         <View style={styles.container}>
           <Tabs>
             <View title="VERSET" style={styles.content}>
-            <FontAwesomeIcon icon={ faSmileBeam } size={100} color={ '#c8d9eb' } style={{ position: 'absolute', top: 30, left: 60 }} />
+              <ImageBackground source = {require('../assets/read-bible-light.jpg')} style = {styles.image} />
               <Text style={styles.title}> {i18n.t('homepage.step_1')} </Text>
-              <FontAwesomeIcon icon={ faPray } size={100} color={ '#c8d9eb' } style={{ position: 'absolute', top: 160, right: 20 }} />
-              <Text style={styles.title}>{i18n.t('homepage.step_2')}</Text>
-              <FontAwesomeIcon icon={ faBible } size={100} color={ '#c8d9eb' } style={{ position: 'absolute', bottom: 160, left: 100 }} />
-              <Text style={styles.title}>{i18n.t('homepage.step_3')}</Text>
               <TouchableOpacity
                 style = {styles.containerh}
                 onPress={(value) => { this.props.navigation.navigate('StateOfMind') }}>
@@ -114,6 +109,13 @@ class Homepage extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+    position: 'absolute',
+    width: '100%',
+    height: '120%',
+    justifyContent: 'center'
+  },
   sous_titre_graphique: {
     display: 'flex',
     textAlign: 'center',
@@ -132,18 +134,17 @@ const styles = StyleSheet.create({
     color: '#01676b'
   },
   containerh: {
-    padding: 10,
-    backgroundColor: '#49beb7',
-    padding: 20,
+    borderColor: 'transparent',
+    backgroundColor: '#01676b',
+    padding: 15,
     display: 'flex',
     alignItems: 'center',
-    width: '80%',
-    marginLeft: '10%',
+    width: '60%',
+    marginLeft: '20%',
     marginBottom: '10%',
-    marginTop: '10%',
-    borderRadius: 50,
-    borderWidth: 2,
-    borderColor: 'white'
+    marginTop: '20%',
+    borderRadius: 30,
+    borderWidth: 2
   },
   title_1: {
     flex: 2,
@@ -158,15 +159,16 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   title: {
-    flex: 3,
+    flex: 1,
     display: 'flex',
     textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 18,
+    fontWeight: '100',
+    fontSize: 20,
     position: 'relative',
+    paddingTop: 100,
     paddingRight: 25,
     paddingLeft: 25,
-    color: '#01676b'
+    color: 'white'
   },
   container: {
     flex: 1,                            // Take up all screen
@@ -186,6 +188,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,               // Add horizontal margin
     textAlign: 'center',                // Center
     fontSize: 18,
+    fontWeight: '100',
     color: 'white'
   },
   piechart: {
