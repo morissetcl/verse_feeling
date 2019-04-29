@@ -10,6 +10,13 @@ module.exports = StyleSheet.create({
   main_container: {
     flex: 1
   },
+  image: {
+    flex: 1,
+    position: 'absolute',
+    width: '100%',
+    height: '120%',
+    justifyContent: 'center'
+  },
   container: {
     padding: 10,
     marginTop: 3,

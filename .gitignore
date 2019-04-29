@@ -1,3 +1,6 @@
 morissetcl.keystore
 mood-to-verse.jks
 gradle.properties
+.expo
+.DS_Store
+.expo/packager-info.json
