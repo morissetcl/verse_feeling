@@ -79,7 +79,7 @@ class Homepage extends React.Component {
         <View style={styles.container}>
           <Tabs>
             <View title="VERSET" style={styles.content}>
-              <ImageBackground source = {require('../assets/read-bible-light.jpg')} style = {styles.image} />
+              <ImageBackground source = {require('../assets/read-bible-light-min2.jpg')} style = {styles.image} />
               <Text style={styles.title}> {i18n.t('homepage.step_1')} </Text>
               <TouchableOpacity
                 style = {styles.containerh}
