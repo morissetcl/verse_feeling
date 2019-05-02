@@ -7,6 +7,7 @@ import Tabs from './Tabs'
 import PureChart from 'react-native-pure-chart';
 import { getFeelings } from '../api/bible'
 import { Constants } from 'expo';
+const style = require('./communs/style');
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -99,7 +100,7 @@ class Homepage extends React.Component {
                       : <Text style={{ padding: 30, flex: 1, textAlign: 'center' }}> Vous n'avez pas encore de données, vous devez effectuer au moins une recherche de verset pour accèder à votre graphique. </Text>
                     }
                   </View>
-                : <ActivityIndicator size="large" color="#0000ff" />
+                : <ActivityIndicator size="large" style = {style.loader} />
               }
             </View>
           </Tabs>

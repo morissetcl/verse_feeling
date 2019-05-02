@@ -49,5 +49,10 @@ module.exports = StyleSheet.create({
   },
   text: {
     color: 'white'
+  },
+  loader: {
+    color:"#0000ff",
+    flex: 1,
+    alignItems: 'center'
   }
 });
