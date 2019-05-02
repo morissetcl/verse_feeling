@@ -35,6 +35,7 @@ class Result extends React.Component {
   }
 
   retrieveVerse() {
+    this.setState({ loaded: false })
     const tags = this.formattedTags()
     getVerseFromBibleApiWithSearchedText(tags).then(data => {
       random_verse = data['verses'][Math.floor(Math.random() * data['verses'].length)];
@@ -85,7 +86,7 @@ class Result extends React.Component {
               </ScrollView>
             </View>
           </View>
-          :  <ActivityIndicator size="large" color="#0000ff" />
+          :  <ActivityIndicator size="large" style = {style.loader} />
         }
         <View style = {styles.bottom_buttons}>
           <TouchableOpacity onPress = {() => this.props.navigation.dispatch(backHome)}>
@@ -131,7 +132,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     backgroundColor: 'transparent'
-
   }
 })
 
