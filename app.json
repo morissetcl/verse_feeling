@@ -10,7 +10,7 @@
     ],
     "android": {
       "package": "com.moodtoverse.moodtoverse",
-      "versionCode": 4
+      "versionCode": 5
     },
     "version": "1.0.1",
     "orientation": "portrait",
