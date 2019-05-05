@@ -8,6 +8,7 @@ import PureChart from 'react-native-pure-chart';
 import { getFeelings } from '../api/bible'
 import { Constants } from 'expo';
 const style = require('./communs/style');
+import registerForNotifications from './services/push-notifications';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class Homepage extends React.Component {
   static navigationOptions = { header: null }
 
   componentDidMount() {
+    registerForNotifications();
     getFeelings(this.state.deviceId).then(data => {
       const coucou = data['feelings']
       if (coucou.length > 0){
