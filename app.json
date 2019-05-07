@@ -10,14 +10,14 @@
     ],
     "android": {
       "package": "com.moodtoverse.moodtoverse",
-      "versionCode": 5,
-      "notification": {
-        "icon": "./assets/moodtoversevf.png"
-      }
+      "versionCode": 5
     },
     "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/moodtoversevf.png",
+    "notification": {
+      "icon": "./assets/moodtoversevf.png"
+    },
     "splash": {
       "image": "./assets/moodtoversevf.png",
       "resizeMode": "contain",
